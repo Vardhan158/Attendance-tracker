@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 import { useAuth } from "../context/useAuth";
 import { getDashboardPath } from "../utils/routes";
@@ -71,7 +71,10 @@ const Login = () => {
           {loading ? "Logging in..." : "Login"}
         </button>
         <div className="mt-4 text-center">
-          Don't have an account? <a href="/signup" className="text-purple-600 hover:underline">Sign Up</a>
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-purple-600 hover:underline">
+            Sign Up
+          </Link>
         </div>
       </form>
     </div>

@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL || "/api";
+const baseURL = configuredBaseUrl.replace(/\/+$/, "");
+
 const API = axios.create({
-  baseURL: "https://attendance-tracker-1-xove.onrender.com/api",
+  baseURL,
 });
 
 API.interceptors.request.use((config) => {
