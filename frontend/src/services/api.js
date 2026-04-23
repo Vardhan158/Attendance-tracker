@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL || "/api";
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL || "https://attendance-tracker-backend-hwsz.onrender.com/api";
 const baseURL = configuredBaseUrl.replace(/\/+$/, "");
 
 const API = axios.create({
