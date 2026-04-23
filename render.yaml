@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: skillbridge
+    runtime: node
+    rootDir: .
+    buildCommand: cd frontend && npm ci && npm run build && cd ../backend && npm ci
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: INVITE_JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: INVITE_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
