@@ -4,6 +4,7 @@ import API from "../services/api";
 import { useAuth } from "../context/useAuth";
 import { getDashboardPath } from "../utils/routes";
 import { clearPendingInvite, getInvitePath, getPendingInvite } from "../utils/invite";
+import { getRequestErrorMessage } from "../utils/apiErrors";
 
 const roles = [
   "student",
@@ -91,7 +92,7 @@ const Signup = () => {
 
       navigate(nextPath, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed");
+      setError(getRequestErrorMessage(err, "Signup failed"));
     } finally {
       setLoading(false);
     }

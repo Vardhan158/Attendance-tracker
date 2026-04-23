@@ -4,6 +4,7 @@ import API from "../services/api";
 import { useAuth } from "../context/useAuth";
 import { getDashboardPath } from "../utils/routes";
 import { clearPendingInvite, getInvitePath, getPendingInvite } from "../utils/invite";
+import { getRequestErrorMessage } from "../utils/apiErrors";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -34,7 +35,7 @@ const Login = () => {
 
       navigate(nextPath, { replace: true });
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(getRequestErrorMessage(err, "Login failed"));
     } finally {
       setLoading(false);
     }
